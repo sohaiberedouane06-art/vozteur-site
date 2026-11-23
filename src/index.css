@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-ink: #050507;
+  --color-cinema: #e50914;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink font-sans text-white antialiased;
+  font-feature-settings: "cv11", "ss01";
+  overflow: hidden;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/15 bg-white/[0.07] backdrop-blur-2xl;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .glass-strong {
+    @apply border border-white/20 bg-white/10 backdrop-blur-3xl;
+    box-shadow:
+      0 32px 90px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.16),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-soft {
+    @apply border border-white/10 bg-white/[0.05] backdrop-blur-xl;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-btn {
+    @apply border border-white/20 bg-white/10 backdrop-blur-xl transition hover:bg-white/20 active:scale-95;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+  }
+
+  .icon-btn {
+    @apply grid place-items-center rounded-full text-white/60 transition hover:bg-white/10 hover:text-white active:scale-90;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input[type="range"].volume {
+  @apply h-1 w-full cursor-pointer appearance-none rounded-full bg-white/15;
+  accent-color: #fff;
+}
+input[type="range"].volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+input[type="range"].volume::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}

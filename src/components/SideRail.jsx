@@ -13,7 +13,7 @@ export function TrendingRail({ items, onOpen, onPlay }) {
             onClick={() => onOpen(item)}
             className="glass-soft group flex w-full items-center gap-3 rounded-2xl p-2 text-left transition hover:border-white/25 hover:bg-white/10"
           >
-            <div className="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl">
+            <div className="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-white/10 to-white/5">
               <img
                 src={item.backdrop || item.poster}
                 alt={item.title}
@@ -72,7 +72,7 @@ export function ContinueWatching({ items, onOpen, onPlay }) {
               onClick={() => onOpen(item)}
               className="glass-soft group flex w-full items-center gap-3 rounded-2xl p-2 text-left transition hover:border-white/25 hover:bg-white/10"
             >
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-white/10 to-white/5">
                 <img
                   src={item.poster}
                   alt={item.title}

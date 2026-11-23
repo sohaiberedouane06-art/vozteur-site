@@ -40,7 +40,7 @@ export default function MediaBar({
           <img
             src={item.poster}
             alt={item.title}
-            className="h-10 w-10 rounded-full object-cover ring-1 ring-white/25 sm:h-11 sm:w-11"
+            className="h-10 w-10 rounded-full bg-white/10 object-cover ring-1 ring-white/25 sm:h-11 sm:w-11"
             draggable="false"
           />
         </button>

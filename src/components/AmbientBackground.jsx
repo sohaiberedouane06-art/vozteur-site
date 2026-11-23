@@ -5,28 +5,37 @@ const NOISE =
 
 export default function AmbientBackground({ accent = '#818cf8', enabled = true }) {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-ink">
-      <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,#101018_0%,#050507_55%)]" />
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#07070b]">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#12121c_0%,#0b0b12_45%,#09090f_100%)]" />
       <motion.div
-        className="absolute -top-48 left-[8%] h-[42rem] w-[42rem] rounded-full opacity-40 blur-[140px]"
-        animate={{ backgroundColor: accent, opacity: enabled ? 0.32 : 0 }}
+        className="absolute -top-56 -left-40 h-[56rem] w-[56rem] rounded-full blur-[160px]"
+        animate={{ backgroundColor: accent, opacity: enabled ? 0.3 : 0 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.div
-        className="absolute -bottom-56 right-[4%] h-[38rem] w-[38rem] rounded-full opacity-30 blur-[150px]"
+        className="absolute -bottom-64 -right-32 h-[52rem] w-[52rem] rounded-full blur-[170px]"
         animate={{ backgroundColor: accent, opacity: enabled ? 0.22 : 0 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.div
-        className="absolute top-[38%] left-[55%] h-[26rem] w-[26rem] rounded-full opacity-20 blur-[120px]"
-        animate={{ backgroundColor: '#7c3aed', opacity: enabled ? 0.16 : 0 }}
+        className="absolute -bottom-48 -left-24 h-[34rem] w-[40rem] rounded-full blur-[150px]"
+        animate={{ backgroundColor: accent, opacity: enabled ? 0.14 : 0 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <motion.div
+        className="absolute -bottom-40 left-[35%] h-[28rem] w-[44rem] rounded-full blur-[150px]"
+        animate={{ backgroundColor: accent, opacity: enabled ? 0.1 : 0 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <motion.div
+        className="absolute top-[30%] left-[48%] h-[26rem] w-[26rem] rounded-full blur-[130px]"
+        animate={{ backgroundColor: '#7c3aed', opacity: enabled ? 0.12 : 0 }}
         transition={{ duration: 1.4 }}
       />
       <div
         className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
         style={{ backgroundImage: `url("${NOISE}")` }}
       />
-      <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_50%_50%,transparent_55%,rgba(0,0,0,0.55)_100%)]" />
     </div>
   );
 }

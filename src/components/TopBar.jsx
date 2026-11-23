@@ -41,7 +41,7 @@ export default function TopBar({ tab, onSelectTab, query, setQuery }) {
         )}
       </div>
 
-      <nav className="no-scrollbar flex items-center gap-1 overflow-x-auto">
+      <nav className="no-scrollbar -m-2 flex items-center gap-1 overflow-x-auto p-2">
         {TABS.map((t) => {
           const active = tab === t;
           return (
@@ -56,8 +56,8 @@ export default function TopBar({ tab, onSelectTab, query, setQuery }) {
               {active && (
                 <motion.span
                   layoutId="tab-pill"
-                  className="absolute inset-0 rounded-full border border-white/20 bg-white/15"
-                  style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.18), 0 4px 18px rgba(0,0,0,0.35)' }}
+                  className="absolute inset-0 rounded-full border border-white/15 bg-white/15 backdrop-blur-md"
+                  style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.18)' }}
                   transition={{ type: 'spring', stiffness: 500, damping: 38 }}
                 />
               )}

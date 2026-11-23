@@ -15,7 +15,7 @@ export default function NavRail({ view, setView, favoritesCount, downloadsCount 
     id === 'favorites' ? favoritesCount : id === 'downloads' ? downloadsCount : 0;
 
   return (
-    <nav className="glass z-30 flex shrink-0 flex-row items-center gap-1 overflow-x-auto rounded-full p-1.5 no-scrollbar lg:h-full lg:w-[76px] lg:flex-col lg:overflow-visible lg:rounded-[2rem] lg:px-0 lg:py-5">
+    <nav className="glass z-30 flex shrink-0 flex-row items-center gap-1 overflow-x-auto rounded-full p-2 no-scrollbar lg:h-full lg:w-[76px] lg:flex-col lg:overflow-visible lg:rounded-[2rem] lg:px-2 lg:py-5">
       <button
         onClick={() => setView('home')}
         className="mr-1 grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/25 bg-gradient-to-br from-white/25 to-white/5 lg:mb-6 lg:mr-0"
@@ -40,8 +40,8 @@ export default function NavRail({ view, setView, favoritesCount, downloadsCount 
             {active && (
               <motion.span
                 layoutId="nav-active-pill"
-                className="absolute inset-0 rounded-2xl border border-white/25 bg-white/15 lg:rounded-[1.1rem]"
-                style={{ boxShadow: '0 0 28px rgba(255,255,255,0.18), inset 0 1px 0 rgba(255,255,255,0.2)' }}
+                className="absolute inset-0 rounded-2xl border border-white/20 bg-white/15 backdrop-blur-md lg:rounded-[1.1rem]"
+                style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)' }}
                 transition={{ type: 'spring', stiffness: 500, damping: 38 }}
               />
             )}

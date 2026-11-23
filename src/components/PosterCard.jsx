@@ -1,10 +1,12 @@
+import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Star, Heart } from 'lucide-react';
 import { formatRating, cn } from '../lib/utils.js';
 
-export default function PosterCard({ item, onOpen, onPlay, isFavorite, onToggleFavorite }) {
+const PosterCard = forwardRef(function PosterCard({ item, onOpen, onPlay, isFavorite, onToggleFavorite }, ref) {
   return (
     <motion.div
+      ref={ref}
       layout
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
@@ -76,4 +78,6 @@ export default function PosterCard({ item, onOpen, onPlay, isFavorite, onToggleF
       </button>
     </motion.div>
   );
-}
+});
+
+export default PosterCard;

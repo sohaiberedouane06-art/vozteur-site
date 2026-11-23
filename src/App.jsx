@@ -11,7 +11,9 @@ import PosterGrid from './components/PosterGrid.jsx';
 import { TrendingRail, ContinueWatching } from './components/SideRail.jsx';
 import MediaBar from './components/MediaBar.jsx';
 import DetailsModal from './components/DetailsModal.jsx';
-import { ProfilePanel, SettingsPanel } from './components/Panels.jsx';
+import { SettingsPanel } from './components/Panels.jsx';
+import ProfileModal from './components/ProfileModal.jsx';
+import { loadProfile, saveProfile } from './lib/profile.js';
 
 const GRID_TITLES = {
   Home: 'New Releases',
@@ -39,6 +41,8 @@ export default function App() {
     shuffle: false,
   });
   const [settings, setSettings] = useState({ ambient: true, reduceMotion: false, autoplay: true });
+  const [profile, setProfile] = useState(loadProfile);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [toast, setToast] = useState(null);
   const toastTimer = useRef(null);
 
@@ -177,6 +181,16 @@ export default function App() {
   const openDetails = useCallback((item) => setSelected(item), []);
   const goHome = useCallback(() => setView('home'), []);
 
+  const handleSaveProfile = useCallback(
+    (p) => {
+      saveProfile(p);
+      setProfile(p);
+      setProfileOpen(false);
+      showToast(`Welcome, ${p.name}`);
+    },
+    [showToast],
+  );
+
   const gridTitle =
     view === 'favorites'
       ? 'Your Watchlist'
@@ -201,6 +215,8 @@ export default function App() {
           }}
           favoritesCount={favorites.size}
           downloadsCount={downloads.size}
+          profile={profile}
+          onOpenProfile={() => setProfileOpen(true)}
         />
 
         <div className="glass flex min-h-0 flex-1 flex-col overflow-hidden rounded-[2rem] border-t-white/25 lg:rounded-[2.5rem]">
@@ -213,12 +229,12 @@ export default function App() {
             }}
             query={query}
             setQuery={setQuery}
+            profile={profile}
+            onOpenProfile={() => setProfileOpen(true)}
           />
 
           <div className="custom-scroll min-h-0 flex-1 overflow-y-auto px-4 pb-36 pt-4 sm:px-6 sm:pt-5">
-            {view === 'profile' ? (
-              <ProfilePanel favoritesCount={favorites.size} downloadsCount={downloads.size} />
-            ) : view === 'settings' ? (
+            {view === 'settings' ? (
               <SettingsPanel settings={settings} setSettings={setSettings} />
             ) : showDashboard ? (
               <div className="grid items-start gap-7 xl:grid-cols-[300px_minmax(0,1fr)]">
@@ -295,6 +311,13 @@ export default function App() {
         onToggleMute={() => setPlayer((p) => ({ ...p, muted: !p.muted }))}
         onToggleShuffle={() => setPlayer((p) => ({ ...p, shuffle: !p.shuffle }))}
         onOpen={openDetails}
+      />
+
+      <ProfileModal
+        open={profileOpen}
+        profile={profile}
+        onSave={handleSaveProfile}
+        onClose={() => setProfileOpen(false)}
       />
 
       <DetailsModal

@@ -1,40 +1,6 @@
 import { motion } from 'framer-motion';
-import { Heart, Download, Clock3, BadgeCheck, LogOut, Sparkles, Wind, Zap } from 'lucide-react';
+import { Sparkles, Wind, Zap } from 'lucide-react';
 import { cn } from '../lib/utils.js';
-
-export function ProfilePanel({ favoritesCount, downloadsCount }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="glass mx-auto max-w-md rounded-3xl p-8 text-center"
-    >
-      <div className="mx-auto grid h-20 w-20 place-items-center rounded-full border border-white/25 bg-gradient-to-br from-indigo-400/70 to-fuchsia-500/60 text-2xl font-bold shadow-[0_0_40px_rgba(168,85,247,0.4)]">
-        A
-      </div>
-      <h2 className="mt-4 text-xl font-bold text-white">Aria Nakamura</h2>
-      <p className="mt-1 inline-flex items-center gap-1.5 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
-        <BadgeCheck size={13} /> Premium member
-      </p>
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        {[
-          { icon: Heart, label: 'Watchlist', value: favoritesCount },
-          { icon: Download, label: 'Downloads', value: downloadsCount },
-          { icon: Clock3, label: 'Hours watched', value: '128h' },
-        ].map(({ icon: Icon, label, value }) => (
-          <div key={label} className="glass-soft rounded-2xl px-2 py-4">
-            <Icon size={16} className="mx-auto text-white/60" />
-            <p className="mt-2 text-lg font-bold text-white">{value}</p>
-            <p className="text-[10px] font-medium uppercase tracking-wider text-white/40">{label}</p>
-          </div>
-        ))}
-      </div>
-      <button className="glass-btn mt-6 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white/80">
-        <LogOut size={15} /> Sign out
-      </button>
-    </motion.div>
-  );
-}
 
 function Toggle({ on, onChange }) {
   return (

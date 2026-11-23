@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Home, Heart, Download, User, Settings, Play } from 'lucide-react';
 import { cn } from '../lib/utils.js';
+import Avatar from './Avatar.jsx';
 
 const ITEMS = [
   { id: 'home', label: 'Home', icon: Home },
@@ -10,7 +11,7 @@ const ITEMS = [
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
-export default function NavRail({ view, setView, favoritesCount, downloadsCount }) {
+export default function NavRail({ view, setView, favoritesCount, downloadsCount, profile, onOpenProfile }) {
   const badgeFor = (id) =>
     id === 'favorites' ? favoritesCount : id === 'downloads' ? downloadsCount : 0;
 
@@ -31,7 +32,7 @@ export default function NavRail({ view, setView, favoritesCount, downloadsCount 
           <button
             key={id}
             title={label}
-            onClick={() => setView(id)}
+            onClick={() => (id === 'profile' ? onOpenProfile() : setView(id))}
             className={cn(
               'relative grid h-11 w-11 shrink-0 place-items-center rounded-2xl transition-colors lg:rounded-[1.1rem]',
               active ? 'text-white' : 'text-white/50 hover:bg-white/5 hover:text-white',
@@ -59,10 +60,11 @@ export default function NavRail({ view, setView, favoritesCount, downloadsCount 
       <div className="ml-auto lg:mb-2 lg:ml-0 lg:mt-auto">
         <button
           title="Profile"
-          onClick={() => setView('profile')}
-          className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-gradient-to-br from-indigo-400/60 to-fuchsia-500/50 text-sm font-bold text-white shadow-[0_0_18px_rgba(168,85,247,0.35)]"
+          onClick={onOpenProfile}
+          className="block rounded-full transition duration-300 hover:scale-110"
+          aria-label="Open profile"
         >
-          A
+          <Avatar src={profile.avatar} size={40} className="ring-2 ring-white/25" />
         </button>
       </div>
     </nav>

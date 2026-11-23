@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import { Search, X, Bell } from 'lucide-react';
 import { TABS } from '../data/catalog.js';
 import { cn } from '../lib/utils.js';
+import Avatar from './Avatar.jsx';
 
-export default function TopBar({ tab, onSelectTab, query, setQuery }) {
+export default function TopBar({ tab, onSelectTab, query, setQuery, profile, onOpenProfile }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -72,11 +73,13 @@ export default function TopBar({ tab, onSelectTab, query, setQuery }) {
           <Bell size={17} />
           <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-cinema ring-2 ring-black/50" />
         </button>
-        <button className="glass-soft flex items-center gap-2.5 rounded-full py-1 pl-1 pr-3.5 transition hover:bg-white/10">
-          <span className="grid h-7 w-7 place-items-center rounded-full border border-white/25 bg-gradient-to-br from-indigo-400/70 to-fuchsia-500/60 text-[11px] font-bold">
-            A
-          </span>
-          <span className="hidden text-[13px] font-medium text-white/85 sm:block">Aria</span>
+        <button
+          onClick={onOpenProfile}
+          className="glass-soft group flex items-center gap-2.5 rounded-full py-1 pl-1 pr-3.5 transition hover:bg-white/10"
+          aria-label="Open profile"
+        >
+          <Avatar src={profile.avatar} size={28} className="transition duration-300 group-hover:scale-110" />
+          <span className="hidden text-[13px] font-medium text-white/85 sm:block">{profile.name}</span>
         </button>
       </div>
     </header>

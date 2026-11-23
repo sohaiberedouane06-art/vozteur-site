@@ -14,7 +14,7 @@ const PosterCard = forwardRef(function PosterCard({ item, onOpen, onPlay, isFavo
       whileHover={{ scale: 1.035, zIndex: 20 }}
       transition={{ type: 'spring', stiffness: 320, damping: 26 }}
       onClick={() => onOpen(item)}
-      className="group relative aspect-[2/3] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors duration-300 hover:border-white/30"
+      className="group relative aspect-[2/3] cursor-pointer overflow-hidden rounded-2xl border border-white/[0.08] bg-white/5 transition-colors duration-300 hover:border-white/25"
       style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.35)' }}
     >
       <img

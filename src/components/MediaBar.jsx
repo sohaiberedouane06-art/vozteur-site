@@ -27,8 +27,8 @@ export default function MediaBar({
       transition={{ type: 'spring', stiffness: 260, damping: 26, delay: 0.2 }}
       className="fixed bottom-3 left-1/2 z-40 w-[min(94vw,660px)] -translate-x-1/2 sm:bottom-5"
     >
-      <div className="glass relative flex items-center gap-3 rounded-full px-3 py-2.5 sm:gap-4 sm:px-4 sm:py-3">
-        <div className="absolute inset-x-8 -top-px h-[3px] overflow-hidden rounded-full bg-white/10">
+      <div className="glass relative flex items-center gap-3 rounded-full border-t-white/20 px-3 py-2.5 sm:gap-4 sm:px-4 sm:py-3">
+        <div className="absolute inset-x-8 top-0 h-[3px] overflow-hidden rounded-full bg-white/[0.07]">
           <motion.div
             className="h-full rounded-full bg-white"
             animate={{ width: `${Math.min(100, progress * 100)}%` }}

@@ -203,7 +203,7 @@ export default function App() {
           downloadsCount={downloads.size}
         />
 
-        <div className="glass flex min-h-0 flex-1 flex-col overflow-hidden rounded-[2rem] lg:rounded-[2.5rem]">
+        <div className="glass flex min-h-0 flex-1 flex-col overflow-hidden rounded-[2rem] border-t-white/25 lg:rounded-[2.5rem]">
           <TopBar
             tab={tab}
             onSelectTab={(t) => {

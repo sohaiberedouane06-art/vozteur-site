@@ -19,7 +19,8 @@ export default function TopBar({ tab, onSelectTab, query, setQuery }) {
   }, []);
 
   return (
-    <header className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-2.5 border-b border-white/10 px-4 py-3 sm:px-6">
+    <>
+    <header className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-2.5 px-4 py-3 sm:px-6">
       <div className="glass-soft flex w-full items-center gap-2.5 rounded-full px-4 py-2.5 transition focus-within:border-white/30 focus-within:bg-white/10 sm:w-72">
         <Search size={16} className="shrink-0 text-white/45" />
         <input
@@ -79,5 +80,7 @@ export default function TopBar({ tab, onSelectTab, query, setQuery }) {
         </button>
       </div>
     </header>
+    <div className="hairline-h shrink-0" />
+    </>
   );
 }

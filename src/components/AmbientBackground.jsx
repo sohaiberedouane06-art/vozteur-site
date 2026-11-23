@@ -9,12 +9,12 @@ export default function AmbientBackground({ accent = '#818cf8', enabled = true }
       <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,#101018_0%,#050507_55%)]" />
       <motion.div
         className="absolute -top-48 left-[8%] h-[42rem] w-[42rem] rounded-full opacity-40 blur-[140px]"
-        animate={{ backgroundColor: accent, opacity: enabled ? 0.4 : 0 }}
+        animate={{ backgroundColor: accent, opacity: enabled ? 0.32 : 0 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.div
         className="absolute -bottom-56 right-[4%] h-[38rem] w-[38rem] rounded-full opacity-30 blur-[150px]"
-        animate={{ backgroundColor: accent, opacity: enabled ? 0.28 : 0 }}
+        animate={{ backgroundColor: accent, opacity: enabled ? 0.22 : 0 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.div

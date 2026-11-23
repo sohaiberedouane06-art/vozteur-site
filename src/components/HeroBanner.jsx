@@ -19,7 +19,13 @@ export default function HeroBanner({
   const runtime = formatRuntime(hero.runtimeMin);
 
   return (
-    <section className="relative mb-7 h-[430px] overflow-hidden rounded-3xl border border-white/15 sm:h-[440px] lg:h-[470px]">
+    <section className="relative mb-7 h-[430px] overflow-hidden rounded-3xl border border-white/10 sm:h-[440px] lg:h-[470px]">
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(90% 110% at 75% 15%, ${accent}2e 0%, transparent 60%), linear-gradient(150deg, #17171d 0%, #0a0a0e 55%, #050507 100%)`,
+        }}
+      />
       <AnimatePresence mode="popLayout">
         <motion.div
           key={hero.id}
